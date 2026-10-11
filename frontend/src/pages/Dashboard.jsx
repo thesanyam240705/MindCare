@@ -1,4 +1,4 @@
-import { Activity, ArrowRight, BookOpen, Heart, Wind } from 'lucide-react'
+import { Activity, ArrowRight, BookOpen, CalendarCheck, Heart, Wind } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 const green = '#2e6e56'
@@ -42,6 +42,7 @@ export default function Dashboard() {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 16 }}>
         <FeatureCard icon={Activity} title="Daily reflection" description="Pause and notice how you have been feeling." to="/#check-in" action="Start a check-in" />
         <FeatureCard icon={BookOpen} title="Mood journal" description="Put a few words to what is on your mind." to="/journal" action="Open journal" />
+        <FeatureCard icon={CalendarCheck} title="Self-care planner" description="Set gentle intentions and nourish your routine." to="/planner" action="Open planner" />
         <FeatureCard icon={Wind} title="Calm toolkit" description="Try a breathing or grounding exercise." to="/toolkit" action="Explore toolkit" />
       </div>
       <section style={{ ...cardStyle, marginTop: 18, background: '#e7f0e5', display: 'flex', gap: 16, alignItems: 'center' }}>

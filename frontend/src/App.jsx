@@ -5,6 +5,7 @@ import Journal from './pages/Journal.jsx'
 import Dashboard from './pages/Dashboard.jsx'
 import Toolkit from './pages/Toolkit.jsx'
 import Support from './pages/Support.jsx'
+import Planner from './pages/Planner.jsx'
 
 const green = '#2e6e56'
 const paleGreen = '#e8f1e8'
@@ -30,6 +31,7 @@ function PageLayout({ children }) {
   const navItems = [
     { to: '/dashboard', label: 'Dashboard' },
     { to: '/journal', label: 'Mood journal' },
+    { to: '/planner', label: 'Self-care planner' },
     { to: '/toolkit', label: 'Calm toolkit' },
     { to: '/support', label: 'Support' },
   ]
@@ -76,6 +78,7 @@ export default function App() {
       <Route path="/" element={<Home />} />
       <Route path="/dashboard" element={<PageLayout><Dashboard /></PageLayout>} />
       <Route path="/journal" element={<PageLayout><Journal /></PageLayout>} />
+      <Route path="/planner" element={<PageLayout><Planner /></PageLayout>} />
       <Route path="/toolkit" element={<PageLayout><Toolkit /></PageLayout>} />
       <Route path="/support" element={<PageLayout><Support /></PageLayout>} />
       <Route path="*" element={<Navigate to="/" replace />} />
