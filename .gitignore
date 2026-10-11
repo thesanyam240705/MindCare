@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.env
+
+# Node
+node_modules/
+dist/
+
+# Local/user data and generated ML artifacts
+data/*.csv
+ml/data/*.csv
+ml/artifacts/
+*.joblib
+*.pkl
+
+# OS / IDE
+.DS_Store
+.vscode/
+.idea/
