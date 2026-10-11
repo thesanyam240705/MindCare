@@ -1,6 +1,6 @@
 # MindCare — AI-Powered Mental Wellness and Early Screening Platform
 
-**Milestone 1 starter:** a working React + Flask prototype, a privacy-first check-in API, safety-resource UI, tests, and a reproducible NLP experiment scaffold.
+**Milestone 1 starter:** A working React + Flask prototype featuring a privacy-first check-in API, safety-resource UI, automated tests, and a reproducible NLP experiment scaffold.
 
 > **Important safety boundary:** this is an academic prototype, not a medical device or clinical service. The included five-item check-in is custom and unvalidated. Its total is a reflection aid only; it does not screen for, diagnose, or predict a mental-health condition. Do not present it as PHQ-9/GAD-7 or as a validated score. A qualified mental-health professional should review any clinical screening workflow before it is used with real users.
 
@@ -61,7 +61,7 @@ npm install
 npm run dev
 ```
 
-Open the local URL printed by Vite (normally `http://localhost:5173`). The Vite proxy forwards `/api` calls to Flask.
+Open the local application URL displayed by Vite (normally `http://localhost:5173`). The Vite development proxy forwards all `/api` requests to the Flask backend.
 
 ## 5. Run tests
 
