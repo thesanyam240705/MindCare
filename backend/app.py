@@ -1,4 +1,6 @@
 """MindCare local API. No database persistence; request bodies are never logged here."""
+import random
+
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 from screening import score_check_in
@@ -26,6 +28,18 @@ def check_in():
         return jsonify({"error": str(exc)}), 400
     # Deliberately stateless: no database write, no text journal, no account required.
     return jsonify(result)
+
+
+@app.get("/api/affirmation")
+def affirmation():
+    messages = [
+        "I can take this one gentle step at a time.",
+        "My feelings are valid, and I do not need to solve everything today.",
+        "I am allowed to rest, reflect, and begin again.",
+        "Small progress still counts, and I can choose one kind action for myself.",
+        "I deserve care, patience, and the space to breathe.",
+    ]
+    return jsonify({"message": random.choice(messages)})
 
 
 @app.post("/api/language-signal")

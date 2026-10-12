@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { CalendarDays, ArrowRight } from 'lucide-react'
 
 const green = '#2e6e56'
@@ -22,13 +22,35 @@ function PageHeading({ eyebrow, title, description }) {
 export default function Journal() {
   const [mood, setMood] = useState('Okay')
   const [note, setNote] = useState('')
-  const [entries, setEntries] = useState([])
+  const [entries, setEntries] = useState(() => {
+    try {
+      const saved = localStorage.getItem('mindcare_journal_entries')
+      return saved ? JSON.parse(saved) : []
+    } catch {
+      return []
+    }
+  })
   const moods = ['Very low', 'Low', 'Okay', 'Good', 'Great']
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('mindcare_journal_entries', JSON.stringify(entries))
+    } catch {
+      // ignore storage errors in restricted browsers
+    }
+  }, [entries])
 
   function addEntry(event) {
     event.preventDefault()
     if (!note.trim()) return
-    setEntries((current) => [{ id: Date.now(), mood, note: note.trim(), date: new Date().toLocaleDateString() }, ...current])
+    const nextEntry = {
+      id: Date.now(),
+      mood,
+      note: note.trim(),
+      date: new Date().toISOString().slice(0, 10),
+    }
+    setEntries((current) => [nextEntry, ...current])
+    window.dispatchEvent(new CustomEvent('mindcare-data-updated'))
     setNote('')
   }
 

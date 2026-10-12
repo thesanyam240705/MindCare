@@ -10,3 +10,12 @@ export async function submitCheckIn(answers) {
   }
   return payload
 }
+
+export async function getDailyAffirmation() {
+  const response = await fetch('/api/affirmation')
+  const payload = await response.json().catch(() => ({}))
+  if (!response.ok) {
+    throw new Error(payload.error || 'Unable to load a daily affirmation.')
+  }
+  return payload.message
+}
