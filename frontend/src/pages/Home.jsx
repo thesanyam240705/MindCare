@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Activity, ArrowRight, Check, ChevronLeft, HeartHandshake, Leaf, LockKeyhole, MessageCircleHeart, ShieldCheck, Sparkles, Wind, X } from 'lucide-react'
 import { submitCheckIn } from '../api.js'
+import { Link } from 'react-router-dom';
 
 const questions = [
   { key: 'mood', title: 'I have felt low or down.', area: 'Mood' },
@@ -96,7 +97,24 @@ export default function Home() {
     <div className="app-shell">
       <header className="topbar">
         <a className="brand" href="#top" aria-label="MindCare home"><span className="brand-icon"><Leaf size={20} /></span><span>mindcare<span className="brand-period">.</span></span></a>
-        <nav className="topnav"><a href="#how-it-works">How it works</a><button className="support-link" onClick={() => setShowSafety(true)}><HeartHandshake size={16} /> Get support</button></nav>
+       
+<nav className="topnav">
+  <a href="#how-it-works">How it works</a>
+
+  <Link to="/dashboard">Dashboard</Link>
+  <Link to="/journal">Journal</Link>
+  <Link to="/planner">Planner</Link>
+  <Link to="/toolkit">Toolkit</Link>
+  <Link to="/support">Support</Link>
+
+  <button
+    className="support-link"
+    onClick={() => setShowSafety(true)}
+  >
+    <HeartHandshake size={16} /> Get support
+  </button>
+</nav>
+
       </header>
 
       <main id="top">
